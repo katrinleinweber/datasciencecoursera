@@ -1,0 +1,9 @@
+[submodule "Developing_Data_Products"]
+	path = Developing_Data_Products
+	url = https://github.com/DataScienceSpecialization/Developing_Data_Products.git
+[submodule "courses"]
+	path = courses
+	url = https://github.com/DataScienceSpecialization/courses.git
+[submodule "Exploratory_Data_Analysis"]
+	path = Exploratory_Data_Analysis
+	url = https://github.com/DataScienceSpecialization/Exploratory_Data_Analysis.git
