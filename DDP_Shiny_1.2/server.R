@@ -15,16 +15,26 @@ shinyServer(function(input, output) {
   # data input & presentation defined in ui.R (`sliderInput()` & `plotOutput()`)
   # [x] Are "output" & "input" reserved variable names (orange symbol in RStudio)?
   # ==> no, function parameters defined above
-  output$testing <- renderPlot({
+  output$dots <- renderPlot({
     
-    # generate bins based on input$bins from ui.R
-    x    <- faithful[, 2] 
-    bins <- seq(min(x), max(x), # from ui.R > sliderInput
-                length.out = input$bins + 1)
+    set.seed(2017-02-23)
     
-    # draw the histogram with the specified number of bins
-    hist(x, breaks = bins, col = 'darkgray', border = 'white')
+    number_of_points <- input$numeric
     
+    minX <- input$sliderX[1]
+    maxX <- input$sliderX[2]
+    minY <- input$sliderY[1]
+    maxY <- input$sliderY[2]
+    
+    dataX <- runif(number_of_points, minX, maxX)
+    dataY <- runif(number_of_points, minY, maxY)
+    
+    xlab <- ifelse(input$show_xlab, "x axis", "")
+    ylab <- ifelse(input$show_ylab, "y axis", "")
+    main <- ifelse(input$show_title, "title", "")
+    
+    plot(x = dataX, y = dataY, xlab = xlab, ylab = ylab, main = main, 
+         xlim = c(-100,100), ylim = c(-100,100))
   })
   
 })
