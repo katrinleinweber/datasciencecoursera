@@ -9,25 +9,30 @@
 
 library(shiny)
 
-# Define UI for application that draws a histogram
-shinyUI(fluidPage(
+# Define UI type for application that draws a histogram
+shinyUI(
+  
+  # page type => `sidebarPanel` & `mainPanel`
+  fluidPage(
   
   # Application title
-  titlePanel("Old Faithful Geyser Data"),
+  titlePanel("Testing a user-defined histogram"),
   
   # Sidebar with a slider input for number of bins 
   sidebarLayout(
     sidebarPanel(
-       sliderInput("bins",
-                   "Number of bins:",
+       sliderInput("bins", # name
+                   label = "Slide this:",
                    min = 1,
-                   max = 50,
-                   value = 30)
+                   max = 33,
+                   value = 11)
     ),
     
     # Show a plot of the generated distribution
     mainPanel(
-       plotOutput("distPlot")
+      
+      # defined in server.R (`output$testing`)
+       plotOutput("testing")
     )
   )
 ))

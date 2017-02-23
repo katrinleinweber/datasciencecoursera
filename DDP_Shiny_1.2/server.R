@@ -12,11 +12,14 @@ library(shiny)
 # Define server logic required to draw a histogram
 shinyServer(function(input, output) {
    
-  output$distPlot <- renderPlot({
+  # data input & presentation defined in ui.R (`sliderInput()` & `plotOutput()`)
+  # [ ] Are "output" & "input" reserved variable names (orange symbol in RStudio)?
+  output$testing <- renderPlot({
     
     # generate bins based on input$bins from ui.R
     x    <- faithful[, 2] 
-    bins <- seq(min(x), max(x), length.out = input$bins + 1)
+    bins <- seq(min(x), max(x), # from ui.R > sliderInput
+                length.out = input$bins + 1)
     
     # draw the histogram with the specified number of bins
     hist(x, breaks = bins, col = 'darkgray', border = 'white')
