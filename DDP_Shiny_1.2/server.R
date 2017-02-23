@@ -13,7 +13,8 @@ library(shiny)
 shinyServer(function(input, output) {
    
   # data input & presentation defined in ui.R (`sliderInput()` & `plotOutput()`)
-  # [ ] Are "output" & "input" reserved variable names (orange symbol in RStudio)?
+  # [x] Are "output" & "input" reserved variable names (orange symbol in RStudio)?
+  # ==> no, function parameters defined above
   output$testing <- renderPlot({
     
     # generate bins based on input$bins from ui.R
