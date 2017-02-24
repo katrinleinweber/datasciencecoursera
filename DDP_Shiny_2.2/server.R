@@ -7,19 +7,16 @@ shinyServer(function(input, output) {
   model2 <- lm(hp ~ mpgsp + mpg, data = mtcars)
   
   model1pred <- reactive({
-    mpgInput <- input$sliderMPG
-    predict(model1, newdata = data.frame(mpg = mpgInput))
+    predict(model1, newdata = data.frame(mpg = input$sliderMPG))
   })
   
   model2pred <- reactive({
-    mpgInput <- input$sliderMPG
-    predict(model2, newdata = data.frame(mpg = mpgInput,
-                                         mpgsp = ifelse(mpgInput - 20 > 0,
-                                                        mpgInput - 20, 0)))
+    predict(model2, newdata = data.frame(mpg = input$sliderMPG,
+                                         mpgsp = ifelse(input$sliderMPG - 20 > 0,
+                                                        input$sliderMPG - 20, 0)))
   })
   
   output$plot1 <- renderPlot({
-    mpgInput <- input$sliderMPG
     
     plot(x = mtcars$mpg, y = mtcars$hp, 
          xlab = "MPG", ylab = "horsepower", 
@@ -39,8 +36,8 @@ shinyServer(function(input, output) {
       lines(10:35, model2lines, col = "blue", lwd = 2)
     }
     
-    points(mpgInput, model1pred(), col = "red", pch = 16, cex = 2)
-    points(mpgInput, model2pred(), col = "blue", pch = 16, cex = 2)
+    points(input$sliderMPG, model1pred(), col = "red", pch = 16, cex = 2)
+    points(input$sliderMPG, model2pred(), col = "blue", pch = 16, cex = 2)
     
     legend(25, 250, c("Model 1 Prediction", "Model 2 Prediction"), 
            pch = 16, col = c("red", "blue"), bty = "n", cex = 1.2)
