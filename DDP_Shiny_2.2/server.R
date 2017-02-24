@@ -47,10 +47,10 @@ shinyServer(function(input, output) {
   })
   
   output$pred1 <- renderText({
-    model1pred
+    model1pred()
   })
   
   output$pred2 <- renderText({
-    model2pred
+    model2pred()
   })
 })
