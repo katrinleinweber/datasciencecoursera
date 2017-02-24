@@ -36,7 +36,7 @@ shinyServer(function(input, output) {
         mpg = 10:35, mpgsp = ifelse(10:35 - 20 > 0, 
                                     10:35 - 20, 0)
       ))
-      lines(10:35, model2lines, col = "red", lwd = 2)
+      lines(10:35, model2lines, col = "blue", lwd = 2)
     }
     
     points(mpgInput, model1pred(), col = "red", pch = 16, cex = 2)
