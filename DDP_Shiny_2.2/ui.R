@@ -6,10 +6,10 @@ shinyUI(fluidPage(
   
   sidebarLayout(
     sidebarPanel(
-      sliderInput("sliderMPG", "What is the MPG of this car?",
+      sliderInput("sliderMPG", label = "What is the MPG of this car?",
                   min = 10, max = 35, value = 20),
-      checkboxInput("showModel1", "Show/Hide model 1", T),
-      checkboxInput("showModel2", "Show/Hide model 2", T)
+      checkboxInput("showModel1", "Show/Hide model 1", TRUE),
+      checkboxInput("showModel2", "Show/Hide model 2", TRUE)
     ),
     
     mainPanel(
