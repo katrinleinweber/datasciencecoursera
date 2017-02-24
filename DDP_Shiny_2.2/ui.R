@@ -9,7 +9,8 @@ shinyUI(fluidPage(
       sliderInput("sliderMPG", label = "What is the MPG of this car?",
                   min = 10, max = 35, value = 20),
       checkboxInput("showModel1", "Show/Hide model 1", TRUE),
-      checkboxInput("showModel2", "Show/Hide model 2", TRUE)
+      checkboxInput("showModel2", "Show/Hide model 2", TRUE),
+      submitButton("Predict & plot")
     ),
     
     mainPanel(
