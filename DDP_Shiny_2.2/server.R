@@ -14,8 +14,8 @@ shinyServer(function(input, output) {
   model2pred <- reactive({
     mpgInput <- input$sliderMPG
     predict(model2, newdata = data.frame(mpg = mpgInput,
-                                         mpgsp = ifelse(mtcars$mpg - 20 > 0, 
-                                                        mtcars$mpg - 20, 0)))
+                                         mpgsp = ifelse(mpgInput - 20 > 0,
+                                                        mpgInput - 20, 0)))
   })
   
   output$plot1 <- renderPlot({
