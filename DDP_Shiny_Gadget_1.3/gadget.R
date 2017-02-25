@@ -20,8 +20,8 @@ myTreePicker <- function() {
     })
     
     observeEvent(eventExpr = input$done, {
-      stopApp(returnValue = brushedPoints(df = trees, brush = input$myBrush, 
-                                          xvar = "Girth", yvar = "Volume"))
+      stopApp(brushedPoints(df = trees, brush = input$myBrush, 
+                            xvar = "Girth", yvar = "Volume"))
     })
   }
   
