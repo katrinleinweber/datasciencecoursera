@@ -12,7 +12,8 @@ myFirstGadget <- function() {
   server <- function(input, output, session) {
     
     # clicking Done button closes the app
-    # [ ] implicit button declaration?
+    # [x] implicit button declaration?
+    # ==> No, `gadgetTitleBar()` declares Cancel & Done by default.
     observeEvent(eventExpr = input$done, {
       stopApp()
     })
