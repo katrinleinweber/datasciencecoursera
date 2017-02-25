@@ -1,5 +1,6 @@
 library(shiny)
 library(miniUI)
+library(openssl)
 
 myMultiplierGadget <- function(number1, number2) {
   
@@ -21,3 +22,6 @@ myMultiplierGadget <- function(number1, number2) {
   
   runGadget(app = ui, server = server)
 }
+
+rnd <- as.numeric(rand_bytes()) %% 24 + 1
+myMultiplierGadget(1:rnd, rnd:24)
