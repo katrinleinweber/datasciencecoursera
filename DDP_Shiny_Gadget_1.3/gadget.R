@@ -13,7 +13,7 @@ myTreePicker <- function() {
   server <- function(input, output, session) {
     
     output$plot <- renderPlot({
-      plot(trees, trees$Volume, trees$Girth, 
+      plot(trees$Volume, trees$Girth, 
            main = "Trees!", xlab = "Girth", ylab = "Volume")
     })
     
