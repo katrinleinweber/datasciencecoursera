@@ -3,17 +3,25 @@ library(miniUI)
 
 myFirstGadget <- function() {
   
-  ui <- miniPage(
-    gadgetTitleBar("My 1st Gadget")
+  titles <- "My 1st Gadget"
+  
+  ui <- miniPage(title = cat("Window: ", titles),
+                 gadgetTitleBar(titles)
   )
   
   server <- function(input, output, session) {
     
     # clicking Done button closes the app
-    observeEvent(input$done, {
+    # [ ] implicit button declaration?
+    observeEvent(eventExpr = input$done, {
       stopApp()
     })
   }
   
-  runGadget(ui, server)
+  # implicit declaration of `input$cancel` handling
+  runGadget(app = ui, server = server)
 }
+
+# separate call necessary to acticate all functions
+# [ ] Why doesn't `runGadget` alone make button functional?
+myFirstGadget()
