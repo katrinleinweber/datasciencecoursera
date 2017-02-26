@@ -4,9 +4,8 @@ shinyUI(fluidPage(
   
   titlePanel("Shiny Joel Test"),
   
-  sidebarLayout(
-    sidebarPanel(
       # Joel Test questions from https://www.joelonsoftware.com/2000/08/09/ 
+  verticalLayout(fluid = TRUE,
       
       checkboxGroupInput(
         "questions", label = "Do they/you… (Check all that apply)", 
@@ -22,11 +21,8 @@ shinyUI(fluidPage(
                     "have testers?" = "testers",
                     "write code during candidate interview?" = "interview",
                     "use hallway usability testing?"= "hallway")
-      )
     ),
     
-    mainPanel(
-      h3(textOutput("points", inline = TRUE), " points out of 12")
-    )
+    h3(textOutput("points", inline = TRUE), " points out of 12"),
   )
 ))
