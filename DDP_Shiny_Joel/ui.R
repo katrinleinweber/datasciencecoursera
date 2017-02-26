@@ -7,28 +7,26 @@ shinyUI(fluidPage(
   sidebarLayout(
     sidebarPanel(
       # Joel Test questions from https://www.joelonsoftware.com/2000/08/09/ 
-      # but replaced 'you' with 'they'
       
       checkboxGroupInput(
-        "questions", label = "Check all that apply: ", 
-        choices = c("Do they use source control?" = "control",
-                    "Can they make a build in one step?" = "build",
-                    "Do they make daily builds?" = "daily",
-                    "Do they have a bug database?" = "tracker",
-                    "Do they fix bugs before writing new code?" = "fix",
-                    "Do they have an up-to-date schedule?" = "schedule",
-                    "Do they have a spec?" = "spec",
-                    "Do programmers have quiet working conditions?" = "quiet",
-                    "Do they use the best tools money can buy?" = "tools",
-                    "Do they have testers?" = "testers",
-                    "Do new candidates write code during their interview?" = "interview",
-                    "Do they do hallway usability testing?"= "hallway")
+        "questions", label = "Do they/you… (Check all that apply)", 
+        choices = c("use source control?" = "control",
+                    "build in one step?" = "build",
+                    "build daily?" = "daily",
+                    "have bug database?" = "tracker",
+                    "fix bugs before writing new code?" = "fix",
+                    "have up-to-date schedule?" = "schedule",
+                    "have spec?" = "spec",
+                    "provide quiet working conditions?" = "quiet",
+                    "use best tools money can buy?" = "tools",
+                    "have testers?" = "testers",
+                    "write code during candidate interview?" = "interview",
+                    "use hallway usability testing?"= "hallway")
       )
     ),
     
     mainPanel(
-      h3("They score this many points out of 12 on the Joel Test: "), 
-      textOutput("points")
+      h3(textOutput("points", inline = TRUE), " points out of 12")
     )
   )
 ))
