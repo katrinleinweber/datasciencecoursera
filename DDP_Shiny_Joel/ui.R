@@ -4,7 +4,6 @@ shinyUI(fluidPage(
   
   titlePanel("Shiny Joel Test"),
   
-      # Joel Test questions from https://www.joelonsoftware.com/2000/08/09/ 
   verticalLayout(fluid = TRUE,
       
       checkboxGroupInput(
@@ -24,5 +23,6 @@ shinyUI(fluidPage(
     ),
     
     h3(textOutput("points", inline = TRUE), " points out of 12"),
+    p("Source & further reading: ", a(href = "https://www.joelonsoftware.com/2000/08/09/the-joel-test-12-steps-to-better-code/", "JoelOnSoftware.com/2000/08/09"))
   )
 ))
