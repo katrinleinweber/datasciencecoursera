@@ -11,7 +11,7 @@ library(shiny)
 
 # Define server logic required to draw a histogram
 shinyServer(function(input, output) {
-   
+  
   # data input & presentation defined in ui.R (`sliderInput()` & `plotOutput()`)
   # [x] Are "output" & "input" reserved variable names (orange symbol in RStudio)?
   # ==> no, function parameters defined above

@@ -14,31 +14,31 @@ shinyUI(
   
   # page type => `sidebarPanel` & `mainPanel`
   fluidPage(
-  
-  # Application title
-  titlePanel("Plot random numbers"),
-  
-  # Sidebar with a slider input for number of bins 
-  sidebarLayout(
-    sidebarPanel(
-      numericInput("numeric", "How many dots to plot?", 
-                   value = 1000, min = 1, max = 1000, step = 1), 
-      sliderInput("sliderX", "Pick min values:",
-                  # double sliders
-                   min = -100, max = 100, value = c(-50,50)), 
-      sliderInput("sliderY", "Pick max values:",
-                  min = -100, max = 100, value = c(-50,50)),
-      checkboxInput("show_xlab", "x axis label", value = TRUE),
-      checkboxInput("show_ylab", "y axis label", value = TRUE),
-      checkboxInput("show_title", "title")
-    ),
     
-    # Show a plot of the generated distribution
-    mainPanel(
+    # Application title
+    titlePanel("Plot random numbers"),
+    
+    # Sidebar with a slider input for number of bins 
+    sidebarLayout(
+      sidebarPanel(
+        numericInput("numeric", "How many dots to plot?", 
+                     value = 1000, min = 1, max = 1000, step = 1), 
+        sliderInput("sliderX", "Pick min values:",
+                    # double sliders
+                    min = -100, max = 100, value = c(-50,50)), 
+        sliderInput("sliderY", "Pick max values:",
+                    min = -100, max = 100, value = c(-50,50)),
+        checkboxInput("show_xlab", "x axis label", value = TRUE),
+        checkboxInput("show_ylab", "y axis label", value = TRUE),
+        checkboxInput("show_title", "title")
+      ),
       
-      h3("graph of random points"),
-      # defined in server.R (`output$dots`)
-       plotOutput("dots")
+      # Show a plot of the generated distribution
+      mainPanel(
+        
+        h3("graph of random points"),
+        # defined in server.R (`output$dots`)
+        plotOutput("dots")
+      )
     )
-  )
-))
+  ))
