@@ -36,3 +36,4 @@ vignettes/*.pdf
 *.pdf
 .Rproj.user
 /rsconnect
+slides.html
