@@ -1,13 +1,35 @@
 ---
 title: "RMD slides"
 author: "Katrin Leinweber"
-date: "3/1/2017"
+date: "2017-Mar-01"
 output: ioslides_presentation
 ---
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(echo = FALSE)
 ```
+
+## 2nd heading levels insert new slide
+
+### Top-level heading
+
+#### Sub-level heading
+
+1. first
+1. second (ordinal number doesn't matter)
+1. third
+
+a) Also produces 1.
+a) B and 2.
+
+***
+Slide without a title
+
+*italic*
+
+**bold**
+
+`for (i in len(x))`
 
 ## R Markdown
 
