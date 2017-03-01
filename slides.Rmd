@@ -31,6 +31,29 @@ Slide without a title
 
 `for (i in len(x))`
 
+## R consensus running code
+
+`````{r, comment = "", echo = TRUE}
+head(faithful)
+```
+
+`echo` argument controls display of code
+
+`````{r, comment = "", echo = TRUE, eval = FALSE}
+library(car)
+head(Greene)
+```
+
+`eval` argument controls code execution & thus display of output
+
+## Harry Plotter
+
+```{r, echo=FALSE, fig.align='center', fig.cap="caption"}
+plot(faithful$eruptions, faithful$waiting, 
+     xlab = "eruptions", ylab = "waiting time")
+```
+
+
 ## R Markdown
 
 This is an R Markdown presentation. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
