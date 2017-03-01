@@ -53,6 +53,20 @@ plot(faithful$eruptions, faithful$waiting,
      xlab = "eruptions", ylab = "waiting time")
 ```
 
+***
+Leaflet for maps, similar to `googlevis`
+
+```{r, echo=TRUE, warning=FALSE}
+library(leaflet)
+my_map <- leaflet() %>%
+  addTiles()
+
+# %>% = pipe operator: equivalent to, but cleaner than:
+# my_map <- leaflet()
+# my_map <- addTiles(my_map)
+
+my_map
+```
 
 ## R Markdown
 
