@@ -59,13 +59,13 @@ Leaflet for maps, similar to `googlevis`
 ```{r, echo=TRUE, warning=FALSE}
 library(leaflet)
 my_map <- leaflet() %>%
-  addTiles()
+  addTiles()  # from OpenStreeMap
 
-# %>% = pipe operator: equivalent to, but cleaner than:
+# %>% = pipe into next function as 1st argument: equivalent to, but cleaner than:
 # my_map <- leaflet()
 # my_map <- addTiles(my_map)
 
-my_map
+my_map # generate JavaScript map widget
 ```
 
 ## R Markdown
