@@ -1,0 +1,27 @@
+---
+title: "Some Lagoons Where Aristotle Might Have Invented Science"
+author: "Katrin Leinweber"
+date: "2017-Mar-02"
+output: html_document
+---
+
+Based on a book by [Armand Marie Leroi](http://www.armandmarieleroi.com/?p=1074) ;-)   Using [OpenStreetMap to find the longitude & latitude of some bays or lagoons on Lesbos](https://www.openstreetmap.org/search?query=Lesbos#map=10/39.2083/26.1337), and [WikiPedia for the marker icon](https://commons.wikimedia.org/w/index.php?curid=1359807).
+
+```{r, warning=FALSE, echo=FALSE}
+library(leaflet)
+
+lagoons_of_science <- data.frame(
+  lat = c(39.10274, 39.11128, 39.13758, 39.20431, 39.15544, 39.0902, 39.0421, 39.0963),
+  lng = c(26.09064, 26.09855, 26.20276, 26.28901, 26.28028, 26.1341, 26.5258, 26.4797))
+
+aristotle <- icons("https://upload.wikimedia.org/wikipedia/commons/a/ae/Aristotle_Altemps_Inv8575.jpg", iconWidth = 32)
+```
+
+```{r}
+lagoons_of_science %>%
+  leaflet() %>%
+  addTiles() %>%
+  addMarkers(icon = aristotle, clusterOptions = markerClusterOptions())
+```
+
+That was the largest lagoon to witness an invention of science, period!
