@@ -68,6 +68,40 @@ my_map <- leaflet() %>%
 my_map # generate JavaScript map widget
 ```
 
+***
+Map markers
+
+```{r, echo=TRUE}
+my_map <- my_map %>%  # better chain pipe after `addTiles()`
+  addMarkers(lng = 12.345678, lat = -1.2345678, 
+             popup = "Middle of somewhere.")
+my_map
+```
+
+***
+or many markers by first generating a dataframe
+
+```{r, echo=TRUE, cache.rebuild=FALSE}
+set.seed(proc.time())
+df <- data.frame(lng = runif(2, min = -180, max = 180),
+                 lat = runif(2, min = -90, max = 90))
+```
+
+***
+Or custom markers
+
+```{r}
+myIcon <- makeIcon(iconUrl = "https://avatars3.githubusercontent.com/u/9948149", 
+                   iconHeight = 32, iconWidth = 32)
+mySites <- c("<a href='https://github.com/katrinleinweber/'>my GitHub</a>",
+             "<a href='http://www.KonScience.de/'>KonScience podcast</a>")
+
+df %>%
+  leaflet() %>%
+  addTiles() %>%
+  addMarkers(icon = myIcon, popup = mySites)
+```
+
 ## R Markdown
 
 This is an R Markdown presentation. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
