@@ -1,126 +1,27 @@
 ---
-title: "RMD slides"
+title: "Some Lagoons Where Aristotle Might Have Invented Science"
 author: "Katrin Leinweber"
-date: "2017-Mar-01"
-output: ioslides_presentation
+date: "2017-Mar-02"
+output: html_document
 ---
 
-```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = FALSE)
-```
+Based on a book by [Armand Marie Leroi](http://www.armandmarieleroi.com/?p=1074) ;-)   Using [OpenStreetMap to find the longitude & latitude of some bays or lagoons on Lesbos](https://www.openstreetmap.org/search?query=Lesbos#map=10/39.2083/26.1337), and [WikiPedia for the marker icon](https://commons.wikimedia.org/w/index.php?curid=1359807).
 
-## 2nd heading levels insert new slide
-
-### Top-level heading
-
-#### Sub-level heading
-
-1. first
-1. second (ordinal number doesn't matter)
-1. third
-
-a) Also produces 1.
-a) B and 2.
-
-***
-Slide without a title
-
-*italic*
-
-**bold**
-
-`for (i in len(x))`
-
-## R consensus running code
-
-`````{r, comment = "", echo = TRUE}
-head(faithful)
-```
-
-`echo` argument controls display of code
-
-`````{r, comment = "", echo = TRUE, eval = FALSE}
-library(car)
-head(Greene)
-```
-
-`eval` argument controls code execution & thus display of output
-
-## Harry Plotter
-
-```{r, echo=FALSE, fig.align='center', fig.cap="caption"}
-plot(faithful$eruptions, faithful$waiting, 
-     xlab = "eruptions", ylab = "waiting time")
-```
-
-***
-Leaflet for maps, similar to `googlevis`
-
-```{r, echo=TRUE, warning=FALSE}
+```{r, warning=FALSE, echo=FALSE}
 library(leaflet)
-my_map <- leaflet() %>%
-  addTiles()  # from OpenStreeMap
 
-# %>% = pipe into next function as 1st argument: equivalent to, but cleaner than:
-# my_map <- leaflet()
-# my_map <- addTiles(my_map)
+lagoons_of_science <- data.frame(
+  lat = c(39.10274, 39.11128, 39.13758, 39.20431, 39.15544, 39.0902, 39.0421, 39.0963),
+  lng = c(26.09064, 26.09855, 26.20276, 26.28901, 26.28028, 26.1341, 26.5258, 26.4797))
 
-my_map # generate JavaScript map widget
+aristotle <- icons("https://upload.wikimedia.org/wikipedia/commons/a/ae/Aristotle_Altemps_Inv8575.jpg", iconWidth = 32)
 ```
-
-***
-Map markers
-
-```{r, echo=TRUE}
-my_map <- my_map %>%  # better chain pipe after `addTiles()`
-  addMarkers(lng = 12.345678, lat = -1.2345678, 
-             popup = "Middle of somewhere.")
-my_map
-```
-
-***
-or many markers by first generating a dataframe
-
-```{r, echo=TRUE, cache.rebuild=FALSE}
-set.seed(proc.time())
-df <- data.frame(lng = runif(200, min = -180, max = 180),
-                 lat = runif(200, min = -90, max = 90))
-```
-
-***
-Or custom markers with different symbol & clustering
 
 ```{r}
-mySites <- c("<a href='https://github.com/katrinleinweber/'>my GitHub</a>",
-             "<a href='http://www.KonScience.de/'>KonScience podcast</a>")
-
-df %>%
+lagoons_of_science %>%
   leaflet() %>%
   addTiles() %>%
-  addCircleMarkers(popup = mySites, clusterOptions = markerClusterOptions())
+  addMarkers(icon = aristotle, clusterOptions = markerClusterOptions())
 ```
 
-## R Markdown
-
-This is an R Markdown presentation. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
-
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document.
-
-## Slide with Bullets
-
-- Bullet 1
-- Bullet 2
-- Bullet 3
-
-## Slide with R Output
-
-```{r cars, echo = TRUE}
-summary(cars)
-```
-
-## Slide with Plot
-
-```{r pressure}
-plot(pressure)
-```
-
+That was the largest lagoon to witness an invention of science, period!
