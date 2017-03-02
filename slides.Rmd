@@ -83,23 +83,21 @@ or many markers by first generating a dataframe
 
 ```{r, echo=TRUE, cache.rebuild=FALSE}
 set.seed(proc.time())
-df <- data.frame(lng = runif(2, min = -180, max = 180),
-                 lat = runif(2, min = -90, max = 90))
+df <- data.frame(lng = runif(200, min = -180, max = 180),
+                 lat = runif(200, min = -90, max = 90))
 ```
 
 ***
-Or custom markers
+Or custom markers with different symbol & clustering
 
 ```{r}
-myIcon <- makeIcon(iconUrl = "https://avatars3.githubusercontent.com/u/9948149", 
-                   iconHeight = 32, iconWidth = 32)
 mySites <- c("<a href='https://github.com/katrinleinweber/'>my GitHub</a>",
              "<a href='http://www.KonScience.de/'>KonScience podcast</a>")
 
 df %>%
   leaflet() %>%
   addTiles() %>%
-  addMarkers(icon = myIcon, popup = mySites)
+  addCircleMarkers(popup = mySites, clusterOptions = markerClusterOptions())
 ```
 
 ## R Markdown
