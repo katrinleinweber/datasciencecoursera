@@ -6,4 +6,8 @@ shinyServer(function(input, output) {
     length(input$questions)
   })
   
+  output$plus <- renderText({
+    length(input$plus)
+  })
+  
 })
